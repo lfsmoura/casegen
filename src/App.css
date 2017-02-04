@@ -1,0 +1,71 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  padding: 5px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.case span {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.case .name {
+  font-size: 20px;
+  background-color: cyan;
+}
+
+.case .job {
+  font-size: 20px;
+  background-color: magenta;
+  color: white;
+}
+
+.generate-button {
+  padding: 10px;
+  margin: 20px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.editor {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.part-add-button {
+  float: left;
+  font-size: 20px;
+  padding: 10px;
+  margin: 5px;
+  border: 0;
+  height: 40px;
+}
+
+.part-type-select {
+  margin: 10px;
+}
+.part-item {
+  float: left;
+  padding: 10px;
+  background-color: #f4f4f4;
+  margin: 5px;
+}
