@@ -14,6 +14,9 @@ export const Editor = (props) => {
             <button className="part-add-button" onClick={props.handleAdd}>
               +
             </button>
+            <button className="part-add-button" onClick={props.handleSave}>
+              Salvar
+            </button>
       </div>
     </div>)
 };

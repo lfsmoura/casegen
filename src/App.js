@@ -14,12 +14,14 @@ class App extends Component {
       this.state = {
         parts: generateCase(this.model),
         model: this.model,
+        editMode: false
       };
       this.generate = this.generate.bind(this);
       this.handleValueChange = this.handleValueChange.bind(this);
       this.handleTypeChange = this.handleTypeChange.bind(this);
       this.addItem = this.addItem.bind(this);
       this.deleteItem = this.deleteItem.bind(this);
+      this.handleSave = this.handleSave.bind(this);
   }
 
   generate() {
@@ -54,14 +56,20 @@ class App extends Component {
     }, this.generate)
   }
 
+  handleSave() {
+    this.setState({
+      editMode: !this.state.editMode,
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Gerador de Casos</h2>
+          <h2>Gerador de Cenários</h2>
         </div>
         <p className="App-intro">
-          Crie seu caso
+          Crie seu cenário
         </p>
         <p className="case">
           {this.state.parts.map(part => (<span key={part.id} className={part.type}> {part.value} </span>))}
@@ -70,12 +78,18 @@ class App extends Component {
           Gerar outro
         </button>
 
-        <Editor
+        {!this.state.editMode
+          ? (<button className="generate-button" onClick={this.handleSave}>
+            Editar
+          </button>)
+          : (<Editor
           handleValueChange={this.handleValueChange}
           handleTypeChange={this.handleTypeChange}
           handleAdd={this.addItem}
           handleDelete={this.deleteItem}
-          model={this.state.model} />
+          handleSave={this.handleSave}
+          model={this.state.model} />)
+        }
       </div>
     );
   }
