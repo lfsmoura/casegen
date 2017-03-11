@@ -52,7 +52,7 @@
 }
 
 .part-add-button {
-  float: left;
+  float: right;
   font-size: 20px;
   padding: 10px;
   margin: 5px;
@@ -64,7 +64,6 @@
   margin: 10px;
 }
 .part-item {
-  float: left;
   padding: 10px;
   background-color: #f4f4f4;
   margin: 5px;

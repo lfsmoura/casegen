@@ -9,6 +9,7 @@ export const Editor = (props) => {
             <PartItem key={model.id}
             handleValueChange={props.handleValueChange}
             handleTypeChange={props.handleTypeChange}
+            handleDelete={props.handleDelete}
             {...model} />))}
             <button className="part-add-button" onClick={props.handleAdd}>
               +

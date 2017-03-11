@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Editor } from './components/editor';
-import { updateModelItem, generateCase } from './models/Case.js';
+import { updateModelItem, deleteModelItem, addItem, generateCase } from './models/Case.js';
 
 class App extends Component {
   constructor() {
@@ -19,6 +19,7 @@ class App extends Component {
       this.handleValueChange = this.handleValueChange.bind(this);
       this.handleTypeChange = this.handleTypeChange.bind(this);
       this.addItem = this.addItem.bind(this);
+      this.deleteItem = this.deleteItem.bind(this);
   }
 
   generate() {
@@ -39,9 +40,17 @@ class App extends Component {
     }, this.generate);
   }
 
-  addItem() {
+  deleteItem(id) {
+    const model = deleteModelItem(this.state.model, id);
     this.setState({
-      model: [...this.state.model, { id: this.state.model.length, type: 'text'}],
+      model
+    }, this.generate);
+  }
+
+  addItem() {
+    const model = addItem(this.state.model);
+    this.setState({
+      model,
     }, this.generate)
   }
 
@@ -65,6 +74,7 @@ class App extends Component {
           handleValueChange={this.handleValueChange}
           handleTypeChange={this.handleTypeChange}
           handleAdd={this.addItem}
+          handleDelete={this.deleteItem}
           model={this.state.model} />
       </div>
     );
